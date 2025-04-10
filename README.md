@@ -22,11 +22,85 @@ Note: The author makes no promises or guarantees on this guide as this is as sta
 16. <a href="#acronyms">Acronyms</a>
 
 ## Introduction
-<a href="https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS-Certified-Solutions-Architect-Professional_Exam-Guide.pdf">AWS Certified Solutions Architect - Professional (SAP-C02) Exam Guide</a>
+<a href="https://cp.certmetrics.com/amazon/en/schedule/accommodations">Exam accommodations - Extra 30 minutes for non-native English speakers</a>
 
+<a href="https://d1.awsstatic.com/training-and-certification/docs-sa-pro/AWS-Certified-Solutions-Architect-Professional_Exam-Guide.pdf">AWS Certified Solutions Architect - Professional (SAP-C02) Exam Guide</a>
 
 <a href="https://certmetrics.com/amazon/candidate/benefit_summary.aspx">Don't forget to utilize a benefit code if you've passed another AWS exam previously to save</a>
 
+<a href="https://mng.workshop.aws/">AWS Management and Governance Tools Workshop - Labs help you deepen your knowledge</a>
+At the Exam point you should have in mind the following tips: 
+You should not take the online proctored exam, prefare to do it physically at PearsonVUE facility. If you are not a native speaker always before the sceduling of the exam add the +30 minutes of the extra accomodation. So you will start with 210 minutes to take the exam for all 75 questions. Flag some for review if you are not confident about your answer. Have in mind that you must score over 75% to pass and that 10 of the 75 questions are added as testing questions (Subject Matter Expert (SME) Program) and do not count to the final score of the exam. Always try to narrow down your answers to 2-3 possibly correct ones after reading the requirements of the Case Study.
+If you have time go through the most Case Studies at https://aws.amazon.com/blogs/aws/
+
+Tips I found from others that helped me to narrow down the answers:
+<a href="https://www.reddit.com/r/AWSCertifications/comments/18nk1g9/passed_sapc02/">Original Reddit Source i changed</a> 
+
+- "IOT questions" - Always include AWS IoT Core in the solution
+  
+- "Active-Passive questions" - avoid cold standby approach, that don't meet RTO
+- Fast failover (RTO ≤ 5 mins): The infrastructure must be pre-provisioned and quickly switchable to the target Region.
+- Minimal data loss (RPO ≤ 1 min): The database must replicate data almost in real time across Regions.
+
+- "Database Questions" - Try to migrate away from Aurora Serverless v1, does not support cross-Region read replicas <- go to v2 or Aurora MySQL global database  
+- "Faster Storage questions" - Always check about the usage of storage and not about who is faster EFS/EBS/S3 <- Tricky
+- "Shared storage" - Better choose EFS and S3 Mountpoint, but step away of EBS Multi-Attach feature (depends on the subject)
+	Amazon EBS – Fastest latency; suitable for high-performance block workloads (e.g., databases).
+	Amazon EFS – Shared access, moderate latency; optimized for concurrent file access.
+	Amazon S3 – Highest latency; optimized for durability and scalability, not low-latency access.
+		🔹 EBS is fastest for I/O operations and latency.
+		🔹 EFS is fastest for multi-node shared access.
+		🔹 S3 is best for massive throughput and durability but not speed.
+
+- "Failover DNS tactics" - Always use latency based Route 53 (DNS) against georedaduncy answers
+- 
+- "Cost-effective" - I steered away from anything EKS, Global Accelerator, DirectConnect, Redshift, EMR and EFS unless there were explicit knockout clauses in the other options (meaning the option said to do something in some service that's obviously not available in that service)
+
+- "Scale quickly/automatically" - Usually serverless solutions were the best answers for this one - Lambda, API Gateway, DynamoDB, S3
+
+- "Low operational overhead" vs "Low development overhead" - For the former, I leaned toward serverless (ECS on Fargate counts as serverless in exam context). For the latter, I typically knocked out questions involving migration of code or SQL-to-DynamoDB changes.
+
+- "High availability" - You need a failover mechanism - Route 53 failover routing, S3 cross-region replication, "warm-standby" in another region with an ASG default to 1 instance, RDS multi-AZ (or anything multi-AZ for that matter). EBS was typically a knockout in this case too.
+
+- Concurrency issues or exceeded provisioned throughput - SQS should be considered
+
+- "Resulting in data loss" - Also consider SQS
+  
+- "Decouple services" - breaking down tightly integrated components in a system, allowing them to operate independently -> Consider SQS
+
+- Processes that take more than 15 minutes - Eliminates anything with Lambda in the answer
+
+- Spot vs RI - Never use spot for DB instances. RI should not be selected for "one-time" tasks (on-demand is usually the correct answer here, even if the question says "cost-effective").
+
+- ALB vs NLB - If the question prompt said "web application", ALB was most likely the best answer. However, endpoint services can only be used with NLB so you had to keep an eye on that. Same with TCP/UDP traffic.
+
+- Private, consistent network connection - DirectConnect was likely involved in the correct answer
+  
+- A lot of cloudyfication questions - migrations using AWS Batch, Application Discovery Service, Application Migration Service, Database Migration Service, DataSync, Direct Connect, Migration Evaluator, Migration Hub, S3 Transfer Acceleration, Schema Conversion Tool, Snow Family, Storage Gateway, Transfer Family.
+  
+- Disaster Recovery questions with RTO & RPO under 5 minutes consider DR and always consider AWS Elastic Disaster Recovery!
+  
+- Migration question with something like "Company has an xMbps connection" - Take a look at what time frame the company has as well as the amount of data required to migrate. That will determine if you need Snowball (the connection is not fast enough to migrate the required amount of data or the connection is already heavily utilized) or can use MGN/DMS/DataSync (need to quickly migrate over a 1-2 day maintenance window).
+
+A few surprise topics I saw on the actual exam
+
+- EKS - I had maybe 2-3 questions on this that I did not expect. However, most of them seemed like knockout questions. I think I selected one as the correct answer.
+
+- AWS Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics) - I did not study this as much as I probably should and think I took a wild guess on one of the answers for this one.
+
+Topics I did not see on the actual exam (YMMV)
+
+- CodeStar, Cloud9, CodeGuru
+
+- AWS OpsWorks (no surprise considering AWS is shutting it down and actually recommending customers to migrate to Chef/Puppet's own managed service)
+
+- Persona/Service Dashboards
+
+- QLDB
+
+- LightSail
+
+- License Manager
 ### Exam Content Breakdown:
 
 | Domain  | % of Exam |
