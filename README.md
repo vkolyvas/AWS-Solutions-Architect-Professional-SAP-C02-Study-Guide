@@ -29,21 +29,29 @@ Note: The author makes no promises or guarantees on this guide as this is as sta
 <a href="https://certmetrics.com/amazon/candidate/benefit_summary.aspx">Don't forget to utilize a benefit code if you've passed another AWS exam previously to save</a>
 
 <a href="https://mng.workshop.aws/">AWS Management and Governance Tools Workshop - Labs help you deepen your knowledge</a>
+
 At the Exam point you should have in mind the following tips: 
+
 You should not take the online proctored exam, prefare to do it physically at PearsonVUE facility. If you are not a native speaker always before the sceduling of the exam add the +30 minutes of the extra accomodation. So you will start with 210 minutes to take the exam for all 75 questions. Flag some for review if you are not confident about your answer. Have in mind that you must score over 75% to pass and that 10 of the 75 questions are added as testing questions (Subject Matter Expert (SME) Program) and do not count to the final score of the exam. Always try to narrow down your answers to 2-3 possibly correct ones after reading the requirements of the Case Study.
+
 If you have time go through the most Case Studies at https://aws.amazon.com/blogs/aws/
 
 Tips I found from others that helped me to narrow down the answers:
+
 <a href="https://www.reddit.com/r/AWSCertifications/comments/18nk1g9/passed_sapc02/">Original Reddit Source i changed</a> 
 
 - "IOT questions" - Always include AWS IoT Core in the solution
   
 - "Active-Passive questions" - avoid cold standby approach, that don't meet RTO
+
 - Fast failover (RTO ≤ 5 mins): The infrastructure must be pre-provisioned and quickly switchable to the target Region.
+
 - Minimal data loss (RPO ≤ 1 min): The database must replicate data almost in real time across Regions.
 
 - "Database Questions" - Try to migrate away from Aurora Serverless v1, does not support cross-Region read replicas <- go to v2 or Aurora MySQL global database  
+
 - "Faster Storage questions" - Always check about the usage of storage and not about who is faster EFS/EBS/S3 <- Tricky
+
 - "Shared storage" - Better choose EFS and S3 Mountpoint, but step away of EBS Multi-Attach feature (depends on the subject)
 	Amazon EBS – Fastest latency; suitable for high-performance block workloads (e.g., databases).
 	Amazon EFS – Shared access, moderate latency; optimized for concurrent file access.
@@ -53,7 +61,7 @@ Tips I found from others that helped me to narrow down the answers:
 		🔹 S3 is best for massive throughput and durability but not speed.
 
 - "Failover DNS tactics" - Always use latency based Route 53 (DNS) against georedaduncy answers
-- 
+  
 - "Cost-effective" - I steered away from anything EKS, Global Accelerator, DirectConnect, Redshift, EMR and EFS unless there were explicit knockout clauses in the other options (meaning the option said to do something in some service that's obviously not available in that service)
 
 - "Scale quickly/automatically" - Usually serverless solutions were the best answers for this one - Lambda, API Gateway, DynamoDB, S3
