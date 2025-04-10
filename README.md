@@ -34,13 +34,19 @@ At the Exam point you should have in mind the following tips:
 
 You should not take the online proctored exam, prefare to do it physically at PearsonVUE facility. If you are not a native speaker always before the sceduling of the exam add the +30 minutes of the extra accomodation. So you will start with 210 minutes to take the exam for all 75 questions. Flag some for review if you are not confident about your answer. Have in mind that you must score over 75% to pass and that 10 of the 75 questions are added as testing questions (Subject Matter Expert (SME) Program) and do not count to the final score of the exam. Always try to narrow down your answers to 2-3 possibly correct ones after reading the requirements of the Case Study.
 
-If you have time go through the most Case Studies at https://aws.amazon.com/blogs/aws/
+If you have time go through the most Case Studies, as many questions come from this BLOG: https://aws.amazon.com/blogs/aws/
 
 Tips I found from others that helped me to narrow down the answers:
 
 <a href="https://www.reddit.com/r/AWSCertifications/comments/18nk1g9/passed_sapc02/">Original Reddit Source i changed</a> 
 
 - "IOT questions" - Always include AWS IoT Core in the solution
+
+- "Real time vs Near Real time" - KDS (Kinesis data streams) vs KDF (Kinesis Data Firehose)
+  
+	- KDS is optimal for real-time, low-latency, high-customization use cases.
+  
+	- KDF is ideal for simplified, near real-time delivery of data to storage/analytics destinations.
   
 - "Active-Passive questions" - avoid cold standby approach, that don't meet RTO
 
@@ -53,12 +59,18 @@ Tips I found from others that helped me to narrow down the answers:
 - "Faster Storage questions" - Always check about the usage of storage and not about who is faster EFS/EBS/S3 <- Tricky
 
 - "Shared storage" - Better choose EFS and S3 Mountpoint, but step away of EBS Multi-Attach feature (depends on the subject)
+  
 	Amazon EBS – Fastest latency; suitable for high-performance block workloads (e.g., databases).
-	Amazon EFS – Shared access, moderate latency; optimized for concurrent file access.
+
+ 	Amazon EFS – Shared access, moderate latency; optimized for concurrent file access.
+
 	Amazon S3 – Highest latency; optimized for durability and scalability, not low-latency access.
-		🔹 EBS is fastest for I/O operations and latency.
-		🔹 EFS is fastest for multi-node shared access.
-		🔹 S3 is best for massive throughput and durability but not speed.
+
+  		🔹 EBS is fastest for I/O operations and latency.
+
+  		🔹 EFS is fastest for multi-node shared access.
+
+  		🔹 S3 is best for massive throughput and durability but not speed.
 
 - "Failover DNS tactics" - Always use latency based Route 53 (DNS) against georedaduncy answers
   
