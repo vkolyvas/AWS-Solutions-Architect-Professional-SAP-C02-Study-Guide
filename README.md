@@ -32,7 +32,7 @@ Note: The author makes no promises or guarantees on this guide as this is as sta
 
 At the Exam point you should have in mind the following tips: 
 
-You should not take the online proctored exam, prefare to do it physically at PearsonVUE facility. If you are not a native speaker always before the sceduling of the exam add the +30 minutes of the extra accomodation. So you will start with 210 minutes to take the exam for all 75 questions. Flag some for review if you are not confident about your answer. Have in mind that you must score over 75% to pass and that 10 of the 75 questions are added as testing questions (Subject Matter Expert (SME) Program) and do not count to the final score of the exam. Always try to narrow down your answers to 2-3 possibly correct ones after reading the requirements of the Case Study.
+You should not take the online proctored exam, prefer to do it physically at PearsonVUE facility. If you are not a native speaker always before the scheduling of the exam add the +30 minutes of the extra accommodation. So you will start with 210 minutes to take the exam for all 75 questions. Flag some for review if you are not confident about your answer. Have in mind that you must score over 75% to pass and that 10 of the 75 questions are added as testing questions (Subject Matter Expert (SME) Program) and do not count to the final score of the exam. Always try to narrow down your answers to 2-3 possibly correct ones after reading the requirements of the Case Study.
 
 If you have time go through the most Case Studies, as many questions come from this BLOG: https://aws.amazon.com/blogs/aws/
 
