@@ -36,6 +36,10 @@ You should not take the online proctored exam, prefer to do it physically at Pea
 
 If you have time go through the most Case Studies, as many questions come from this BLOG: https://aws.amazon.com/blogs/aws/
 
+Study on <a href="https://www.udemy.com/course/how-to-become-an-outstanding-solution-architect">Solution's Architect best practices Udemy course from Mark Farragher</a>   
+
+Study on <a href="https://www.udemy.com/course/aws-solutions-architect-professional">Ultimate AWS Certified Solutions Architect Professional 2025 Udemy course from Stephane Maarek</a>   
+
 Tips I found from others that helped me to narrow down the answers:
 
 <a href="https://www.reddit.com/r/AWSCertifications/comments/18nk1g9/passed_sapc02/">Original Reddit Source i changed</a> 
